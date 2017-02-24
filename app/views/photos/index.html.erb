@@ -22,7 +22,7 @@
         <td><%= photo.location_id %></td>
         <td><%= photo.location_type %></td>
         <td><%= photo.user.email %></td>
-        <td><%= photo.image %></td>
+        <td><img src='<%= photo.image %>' class='img-responsive'></td>
         <td><%= photo.caption %></td>
         <td>
           <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
