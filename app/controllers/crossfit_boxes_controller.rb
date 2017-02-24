@@ -1,6 +1,7 @@
 class CrossfitBoxesController < ApplicationController
   def index
-    @crossfit_boxes = CrossfitBox.page(params[:page]).per(10)
+    @q = CrossfitBox.ransack(params[:q])
+    @crossfit_boxes = @q.result(:distinct => true).includes(:city).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@crossfit_boxes.where.not(:address_latitude => nil)) do |crossfit_box, marker|
       marker.lat crossfit_box.address_latitude
       marker.lng crossfit_box.address_longitude

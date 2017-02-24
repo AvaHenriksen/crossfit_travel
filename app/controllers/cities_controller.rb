@@ -1,6 +1,7 @@
 class CitiesController < ApplicationController
   def index
-    @cities = City.page(params[:page]).per(10)
+    @q = City.ransack(params[:q])
+    @cities = @q.result(:distinct => true).includes(:food_options, :crossfit_boxes).page(params[:page]).per(10)
 
     render("cities/index.html.erb")
   end
