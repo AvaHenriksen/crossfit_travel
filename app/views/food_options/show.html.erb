@@ -19,7 +19,13 @@
       <dd><%= @food_option.details %></dd>
 
       <dt>City</dt>
-      <dd><%= @food_option.city_id %></dd>
+      <dd>
+        <% if @food_option.city.present? %>
+          <a href="/cities/<%= @food_option.city_id %>">
+            <%= @food_option.city.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -21,7 +21,13 @@
         <td><%= crossfit_box.name %></td>
         <td><%= crossfit_box.address %></td>
         <td><%= crossfit_box.details %></td>
-        <td><%= crossfit_box.city.name %></td>
+        <td>
+          <% if crossfit_box.city.present? %>
+            <a href="/cities/<%= crossfit_box.city.id %>">
+              <%= crossfit_box.city.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/crossfit_boxes/<%= crossfit_box.id %>" class="btn btn-primary">Show</a>
           <a href="/crossfit_boxes/<%= crossfit_box.id %>/edit" class="btn btn-warning">Edit</a>

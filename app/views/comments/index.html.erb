@@ -19,7 +19,13 @@
 
       <% @comments.each do |comment| %>
       <tr>
-        <td><%= comment.user.email %></td>
+        <td>
+          <% if comment.user.present? %>
+            <a href="/users/<%= comment.user.id %>">
+              <%= comment.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= comment.location_id %></td>
         <td><%= comment.location_type %></td>
         <td><%= comment.body %></td>

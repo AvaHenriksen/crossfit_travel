@@ -21,7 +21,13 @@
       <tr>
         <td><%= photo.location_id %></td>
         <td><%= photo.location_type %></td>
-        <td><%= photo.user.email %></td>
+        <td>
+          <% if photo.user.present? %>
+            <a href="/users/<%= photo.user.id %>">
+              <%= photo.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><img src='<%= photo.image %>' class='img-responsive'></td>
         <td><%= photo.caption %></td>
         <td>

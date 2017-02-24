@@ -19,7 +19,13 @@
       <dd><%= @crossfit_box.details %></dd>
 
       <dt>City</dt>
-      <dd><%= @crossfit_box.city_id %></dd>
+      <dd>
+        <% if @crossfit_box.city.present? %>
+          <a href="/cities/<%= @crossfit_box.city_id %>">
+            <%= @crossfit_box.city.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
