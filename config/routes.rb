@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Crossfit_box resource:
+  # CREATE
+  get "/crossfit_boxes/new", :controller => "crossfit_boxes", :action => "new"
+  post "/create_crossfit_box", :controller => "crossfit_boxes", :action => "create"
+
+  # READ
+  get "/crossfit_boxes", :controller => "crossfit_boxes", :action => "index"
+  get "/crossfit_boxes/:id", :controller => "crossfit_boxes", :action => "show"
+
+  # UPDATE
+  get "/crossfit_boxes/:id/edit", :controller => "crossfit_boxes", :action => "edit"
+  post "/update_crossfit_box/:id", :controller => "crossfit_boxes", :action => "update"
+
+  # DELETE
+  get "/delete_crossfit_box/:id", :controller => "crossfit_boxes", :action => "destroy"
+  #------------------------------
+
   # Routes for the Comment resource:
   # CREATE
   get "/comments/new", :controller => "comments", :action => "new"
