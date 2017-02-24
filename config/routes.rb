@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "cities#index"
   # Routes for the Crossfit_box resource:
   # CREATE
   get "/crossfit_boxes/new", :controller => "crossfit_boxes", :action => "new"
