@@ -1,6 +1,6 @@
 class FoodOptionsController < ApplicationController
   def index
-    @food_options = FoodOption.all
+    @food_options = FoodOption.page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@food_options.where.not(:address_latitude => nil)) do |food_option, marker|
       marker.lat food_option.address_latitude
       marker.lng food_option.address_longitude
