@@ -19,7 +19,7 @@
 
       <% @comments.each do |comment| %>
       <tr>
-        <td><%= comment.user_id %></td>
+        <td><%= comment.user.email %></td>
         <td><%= comment.location_id %></td>
         <td><%= comment.location_type %></td>
         <td><%= comment.body %></td>
